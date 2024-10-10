@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Title }}</title>
+  <style>
+    :root {
+      --background-color: #000000;
+      --text-color: #ffffff;
+      --primary-color: #03f;
+      --font-family: {{ if .Font }} {{ .Font }} {{else}} Arial {{end}};
+    }
+
+    {{ range $Name, $Theme := .Themes }}
+    html[data-theme="{{ $Name }}"] {
+      --background-color: {{ $Theme.BackgroundColor }};
+      --text-color: {{ $Theme.TextColor }};
+      --primary-color: {{ $Theme.PrimaryColor }};
+    }
+    {{ end}}
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: 20px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: repeat({{ .Columns }} , 1fr);
+      gap: 50px;
+    }
+
+    section {
+      width: fit-content;
+      padding: 0 20px;
+      min-width: 200px;
+      margin: 0 auto;
+    }
+
+    ul {
+      list-style-position: inside;
+      margin: 0;
+      padding: 0;
+    }
+
+  #theme-picker {
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    right: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>{{ .Title }}</h1>
+    <div class="panels">
+      {{ range .Sections}}
+      <div>
+        <section>
+          <h3>{{ .Name }}</h3>
+          <ul>
+            {{ range .Entries}}
+            <li><a href="{{ .URL }}">{{ .Name}}</a></li>
+            {{ end}}
+          </ul>
+        </section>
+      </div>
+      {{ end }}
+    </div>
+  </main>
+  <select id="theme-picker">
+    <option value="default">default</option>
+  {{ range $Name, $Theme := .Themes }}
+  {{ if ne $Name "default" }}
+    <option value="{{ $Name }}">{{ $Name }}</option>
+  {{ end }}
+  {{ end }}
+  </select>
+</body>
+<script>
+  const cachedTheme = localStorage.getItem('theme');
+  const themePicker = document.getElementById('theme-picker');
+  const theme = cachedTheme ?? 'default';
+
+  document.documentElement.dataset.theme = theme;
+  themePicker.value = theme;
+
+  themePicker.addEventListener('change', (e) => {
+    const theme = e.target.value;
+    if (theme === 'default') {
+      localStorage.removeItem('theme');
+      document.documentElement.dataset.theme = 'basic';
+      return
+    }
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+    })
+</script>
+
+</html>

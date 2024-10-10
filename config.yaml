@@ -1,0 +1,27 @@
+version: 1
+title: "Bodo Dashboard"
+columns: 3
+font: Arial
+sections:
+  - name: Media
+    entries:
+      - name: Jellyfin
+        url: http://192.168.0.83:8096
+      - name: Navidrone
+        url: https://navidrome.home.local
+  - name: Smart Home
+    entries:
+      - name: Homeassistant
+        url: http://192.168.0.10
+      - name: Zigbee2Mqtt
+        url: zigbee2mqtt.home.locl
+  - name: Favorite blogs
+    entries:
+      - name: Ratfactor
+        url: https://ratfactor.com/
+      - name: Julia Evens
+        url: https://jvns.ca
+      - name: Arne Blog
+        url: https://arne.me
+      - name: Martin Heinz
+        url: https://martinheinz.dev

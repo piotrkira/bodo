@@ -1,0 +1,56 @@
+default:
+  text_color: "#ffffff"
+  background_color: "#000000"
+  primary_color: "#03f"
+blue:
+  text_color: "#ffd700"
+  background_color: "#000087"
+  primary_color: "#00cdcd"
+elflord:
+  text_color: "#00ffff"
+  background_color: "#000000"
+  primary_color: "#cd00cd"
+peachpuff:
+  text_color: "#008b8b"
+  background_color: "#ffdab9"
+  primary_color: "#a52a2a"
+gruvbox:
+  text_color: "#ebdbb2"
+  background_color: "#282828"
+  primary_color: "#98971a"
+cattpucin_latte:
+  text_color: "#4c4f69"
+  background_color: "#eff1f5"
+  primary_color: "#1e66f5"
+cattpucin_frappé:
+  text_color: "#c6d0f5"
+  background_color: "#303446"
+  primary_color: "#8caaee"
+cattpucin_macchiato:
+  text_color: "#cad3f5"
+  background_color: "#24273a"
+  primary_color: "#8aadf4"
+cattpucin_mocha:
+  text_color: "#cdd6f4"
+  background_color: "#1e1e2e"
+  primary_color: "#89b4fa"
+rose_pine:
+  text_color: "#e0def4"
+  background_color: "#191724"
+  primary_color: "#eb6f92"
+rose_pine_moon:
+  text_color: "#e0def4"
+  background_color: "#232136"
+  primary_color: "#eb6f92"
+rose_pine_dawn:
+  text_color: "#575279"
+  background_color: "#faf4ed"
+  primary_color: "#b4637a"
+everforest:
+  text_color: "#d3c6aa"
+  background_color: "#232a2e"
+  primary_color: "#a7c080"
+everforest_light:
+  text_color: "#5c6a72"
+  background_color: "#efebd4"
+  primary_color: "#8da101"
